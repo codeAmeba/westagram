@@ -1,0 +1,454 @@
+body {
+  height: 300vh;
+}
+.nav {
+  height: 53px;
+  width: 100vw;
+  padding: 0 10vw;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  border-bottom: 0.8px solid rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.nav-container {
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* logo */
+.logo-container a {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper img {
+  height: 28px;
+  width: auto;
+  padding-left: 12px;
+  border-left: 1px solid rgba(0, 0, 0, 0.8);
+}
+.logo-wrapper i {
+  position: relative;
+  font-size: 1.4em;
+  color: rgba(0, 0, 0, 0.9);
+  padding-right: 13px;
+}
+
+/* search */
+.search-container {
+  position: relative;
+  left: 25px;
+}
+.search-container .search-input {
+  width: 215px;
+  height: 28px;
+  background-color: #FAFAFA;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 0 25px;
+  outline: none;
+}
+.search-container .search-placeholder {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.9em;
+  top: 6.5px;
+  left: 95px;
+}
+.search-container .fa-search {
+  position: absolute;
+  top: 9px;
+  left: 80px;
+  font-size: 0.65em;
+  color: rgba(0, 0, 0, 0.4);
+}
+.search-container .fa-times-circle {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: none;
+}
+
+/* nav icons */
+.nav-icons-container {
+  display: flex;
+  padding-right: 12px;
+}
+.nav-icons-container div {
+  margin-left: 25px;
+}
+.nav-icons-container .home-icon{
+  margin-right: 0;
+}
+.nav-icons-container i {
+  font-size: 1.4em;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+.user-profile img{
+  height: 25px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* main */
+.main {
+  margin-top: 83px;
+  display: flex;
+  justify-content: center;
+}
+/* feed area */
+.feed-area {
+  height: 100vh;
+  width: 614px;
+  margin-right: 325px;
+}
+
+/* stories */
+.stories {
+  height: 116px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.stories-list {
+  display: flex;
+  overflow: hidden;
+}
+.stories-list li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 20px;
+}
+.stories-list img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+}
+.stories-list p {
+  font-size: 0.75em;
+  letter-spacing: 0.3px;
+  color: rgba(0, 0, 0, 0.8)
+}
+
+/* feed */
+.feed {
+  background-color: #fff;
+}
+
+/* header */
+.feed-header {
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-top: 25px;
+  padding: 12px;
+  position: relative;
+}
+.posting-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.posting-user .nickname,
+.posting-user .location {
+  font-size: 0.9em;
+  margin: 5px 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  cursor: pointer;
+}
+.posting-user .location {
+  font-weight: 400;
+}
+.posting-user .location {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 0.75em;
+}
+.posting-user i {
+  position: absolute;
+  right: 0;
+  margin-right: 12px;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.posting-user img {
+  height: 32px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* image */
+.feed-img {
+  position: relative;
+  max-width: max-content;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.feed-img img {
+  max-width: 614px;
+}
+.feed-img .heart-action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 19px 38px rgba(0, 0, 0, 0.7));
+  transform-origin: center center;
+  width: 0;
+  opacity: .9;
+}
+
+.fas .fa-heart {
+  color: rgb(255, 87, 87);
+}
+
+.animate-like {
+  animation: 2s animateLike ease-in-out forwards;
+}
+
+@keyframes animateLike {
+  0% {
+    width: 0;
+  }
+  5% {
+    width: 180px;
+  }
+  10% {
+    width: 150px;
+  }
+  20%,
+  35% {
+    width: 160px;
+  }
+  40%,
+  100% {
+    width: 0;
+  }
+}
+
+/* text */
+.feed-text {
+  min-height: 150px;
+  max-height: fit-content;
+  padding-bottom: 55px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top: none;
+}
+.feed-text .icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 17px;
+}
+.icon-wrapper i {
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+.icon-wrapper .left-icons i {
+  margin-right: 20px;
+}
+
+.text-wrapper {
+  padding: 0 17px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.text-wrapper > p {
+  margin-bottom: 20px;
+}
+
+.new-comment .input-comment {
+  width: 100%;
+  height: 55px;
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  font-size: 0.9em;
+}
+.new-comment .input-comment::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+.new-comment .upload-comment {
+  position: absolute;
+  right: 12px;
+  bottom: 16px;
+  color: #0095F6;
+  font-size: 0.9em;
+  font-weight: 600;
+  opacity: 0.3;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.text-wrapper .comment {
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+.text-wrapper .comment-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-wrapper .delete-comment {
+  font-weight: 400;
+  font-size: 0.8em;
+  margin-bottom: 15px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+/* etc info */
+.etc-info {
+  width: 292px;
+  position: fixed;
+  right: 17vw;
+}
+.my-info {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.my-info img {
+  height: 60px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.my-info .nickname,
+.my-info .username {
+  font-size: 0.9em;
+  margin: 5px 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.my-info .nickname {
+  font-weight: 600;
+}
+.my-info .username {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.75em;
+}
+
+.recommend-text {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.recommend-text h5 {
+  display: inline-block;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.recommend-text span {
+  font-size: 0.75em;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+.recommend-list {
+  margin-left: 5px;
+}
+.recommend-list li {
+  margin-top: 20px;
+}
+.recommend-list img {
+  height: 32px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.recommend-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recommend-user .username-wrapper {
+  padding-right: 45px;
+}
+.recommend-user p {
+  margin: 0;
+  cursor: pointer;
+}
+.recommend-user .username {
+  margin-top: 5px;
+}
+
+.recommend-user .nickname,
+.recommend-user .username {
+  font-size: 0.9em;
+  margin: 5px 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.recommend-user .nickname {
+  font-weight: 600;
+}
+.recommend-user .username {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.75em;
+}
+.recommend-user .follow {
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #0095F6;
+  cursor: pointer;
+}
+
+
+.footer {
+  margin-top: 25px;
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* media query */
+@media only screen and (max-width: 560px) {
+  .nav {
+    padding: 0 32px;
+  }
+  .search-container {
+    display: none;
+  }
+  .etc-info {
+    display: none;
+  }
+  .feed-area {
+    margin-left: 32px;
+  }
+}
+
+@media only screen and (min-width: 1040px) {
+  .nav {
+    padding: 0 17vw;
+  }
+}
