@@ -108,6 +108,8 @@
 
     deleteComment.innerHTML = '삭제';
     newComment.innerHTML = commentInput.value;
+    commentInput.value = '';
+    checkComment();
   };
 
 
