@@ -73,15 +73,25 @@
     if (e.keyCode !== 13) {
       checkComment();
     } else if (e.keyCode === 13 && e.target.value.length !== 0) {
-      uploadingComment();
-      console.log(commentInput.value.length);
+      writeComment();
       commentInput.value = '';
     }
   });
 
   commentUploadBtn.addEventListener('click', () => {
-    uploadingComment();
+    writeComment();
     commentInput.value = '';
+  });
+
+  commentContainer.addEventListener('click', (e) => {
+    document.querySelectorAll('div').forEach((v) => {
+      v.innerHTML === '삭제' ? console.log('이거 삭제') : '';
+      if (e.target.innerHTML === v.innerHTML) {
+        const comment = v.parentElement;
+        v.parentElement.parentElement.removeChild(comment);
+      }
+    });
+    // console.log(e.target.innerHTML);  
   });
 
   const checkComment = () => {
@@ -95,21 +105,20 @@
     }
   };
 
-  const uploadingComment = () => {
-
+  const writeComment = () => {
     const commentWrapper = document.createElement('div');
-    let newComment = document.createElement('span');
-    const deleteComment = document.createElement('div');
+    const newComment = document.createElement('span');
+    const commentDeleteBtn = document.createElement('div');
     
     commentWrapper.classList.add('comment-wrapper');
     newComment.classList.add('comment');
-    deleteComment.classList.add('delete-comment');
+    commentDeleteBtn.classList.add('delete-comment');
 
     commentWrapper.appendChild(newComment);
-    commentWrapper.appendChild(deleteComment);
+    commentWrapper.appendChild(commentDeleteBtn);
     commentContainer.appendChild(commentWrapper);
 
-    deleteComment.innerHTML = '삭제';
+    commentDeleteBtn.innerHTML = '삭제';
     newComment.innerHTML = commentInput.value.trim();
     checkComment();
   };
