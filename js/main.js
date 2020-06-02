@@ -72,13 +72,16 @@
 
     if (e.keyCode !== 13) {
       checkComment();
-    } else if (e.keyCode === 13) {
+    } else if (e.keyCode === 13 && e.target.value.length !== 0) {
       uploadingComment();
+      console.log(commentInput.value.length);
+      commentInput.value = '';
     }
   });
 
   commentUploadBtn.addEventListener('click', () => {
     uploadingComment();
+    commentInput.value = '';
   });
 
   const checkComment = () => {
@@ -107,8 +110,7 @@
     commentContainer.appendChild(commentWrapper);
 
     deleteComment.innerHTML = '삭제';
-    newComment.innerHTML = commentInput.value;
-    commentInput.value = '';
+    newComment.innerHTML = commentInput.value.trim();
     checkComment();
   };
 
