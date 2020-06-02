@@ -3,31 +3,26 @@ body {
 }
 .nav {
   height: 53px;
-  width: 100vw;
+  width: 100%;
   background-color: #fff;
   position: fixed;
   top: 0;
   border-bottom: 0.8px solid rgba(0, 0, 0, 0.15);
   z-index: 10;
-  display: flex;
-  justify-content: center;
-
+  /* display: flex;
+  justify-content: center; */
 }
 
 .nav-container {
-  /* padding: 0 8.3vw; */
-  max-width: 40vw;
-  height: 53px;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding-top: 12px;
 }
 
 /* logo */
 .logo-container {
-  padding-right: 11.2vw;
+  margin-left: 3.3vw;
 }
-
 .logo-container a {
   display: flex;
   align-items: center;
@@ -49,7 +44,6 @@ body {
 /* search */
 .search-container {
   position: relative;
-  margin: 0 auto;
 }
 .search-container .search-input {
   width: 215px;
@@ -86,8 +80,8 @@ body {
 
 /* nav icons */
 .nav-icons-container {
-  padding-left: 11vw;
   display: flex;
+  margin-right: 3.3vw;
 }
 .nav-icons-container div {
   margin-left: 25px;
@@ -208,11 +202,13 @@ body {
 .feed-img {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  overflow: auto;
+  overflow: hidden;
+  max-width: 940px;
+  max-height: 940px;
 }
 .feed-img img {
-  max-width: 100vw;
-  max-height: 100vh;
+  max-width: 100%;
+  height: auto;
 }
 .feed-img .heart-action {
   position: absolute;
@@ -455,19 +451,15 @@ body {
   .etc-info {
     display: none;
   }
-  .logo-container {
-    padding-right: 6.5vw;
-  }
-  .nav-icons-container {
-    padding-left: 6.5vw;
-  }
   .feed-area {
     width: 100vw;
   }
-  .feed-img {
-    max-height: 640px;
-    max-width: 560px;
+  .nav-container {
+    justify-content: space-between;
   }
+}
+
+@media only screen and (max-width: 770px) {
 }
 
 @media only screen and (max-width: 960px) {
@@ -476,6 +468,5 @@ body {
   }
 }
 
-@media only screen and (min-width: 1040px) {
-
+@media only screen and (max-width: 1440px) {
 }
