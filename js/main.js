@@ -85,13 +85,12 @@
 
   commentContainer.addEventListener('click', (e) => {
     document.querySelectorAll('div').forEach((v) => {
-      v.innerHTML === '삭제' ? console.log('이거 삭제') : '';
-      if (e.target.innerHTML === v.innerHTML) {
+      if (e.target.innerHTML === v.innerHTML && e.target.previousSibling.innerHTML === v.previousSibling.innerHTML) {
         const comment = v.parentElement;
         v.parentElement.parentElement.removeChild(comment);
       }
     });
-    // console.log(e.target.innerHTML);  
+    // console.log(e.target.parentElement);  
   });
 
   const checkComment = () => {
