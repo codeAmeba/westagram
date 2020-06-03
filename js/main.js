@@ -3,7 +3,7 @@
   const searchInput = document.querySelector('.search-input');
   const closeSearchInput = document.querySelector('.fa-times-circle');
   const searchPlaceholder = document.querySelector('.search-placeholder');
-  const searchkeywordList = document.querySelector('.search-keyword');
+  const searchKeywordList = document.querySelector('.search-keyword');
   const searchIcon = document.querySelector('.fa-search');
 
   const feedImg = document.querySelector('.feed-img');
@@ -34,7 +34,7 @@
         .forEach((keyword) => {
           if (foundKeywords.indexOf(keyword) === -1) {
             foundKeywords.push(keyword);
-            searchkeywordList.appendChild(searchKeywordResult(keyword));
+            searchKeywordList.appendChild(searchKeywordResult(keyword));
           }
         });
       }
@@ -42,19 +42,29 @@
 
     if (inputValue === '') {
       foundKeywords.splice(0, foundKeywords.length);
-      searchkeywordList.innerHTML = '';
-      searchkeywordList.classList.remove('search-keyword-active');
+      searchKeywordList.innerHTML = '';
+      searchKeywordList.classList.remove('search-keyword-active');
     }
+
+    checkInputKeyword();
   });
 
-  document.querySelectorAll('.keyword').forEach((result) => {
-    result.addEventListener('click', () => {
-      searchInput.value = result.innerHTML;
-      foundKeywords.splice(0, foundKeywords.length);
-      searchkeywordList.innerHTML = '';
-      searchkeywordList.classList.remove('search-keyword-active');
+  const checkInputKeyword = () => {
+      document.querySelectorAll('.keyword').forEach((v) => {
+      v.addEventListener('click', (e) => {
+        searchInput.value = e.target.innerHTML;
+      })
     });
-  });
+  }
+
+  // document.querySelectorAll('.keyword').forEach((result) => {
+  //   result.addEventListener('click', () => {
+  //     searchInput.value = result.innerHTML;
+  //     foundKeywords.splice(0, foundKeywords.length);
+  //     searchKeywordList.innerHTML = '';
+  //     searchKeywordList.classList.remove('search-keyword-active');
+  //   });
+  // });
 
   closeSearchInput.addEventListener('click', () => {
     movingPlaceholder();
@@ -77,7 +87,7 @@
     const result = document.createElement('li');
     result.classList.add('keyword');
     result.innerHTML = keyword;
-    searchkeywordList.classList.add('search-keyword-active');
+    searchKeywordList.classList.add('search-keyword-active');
     return result;
   };
 
