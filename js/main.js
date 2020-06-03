@@ -38,7 +38,7 @@
           }
         });
       }
-    }, 500);
+    }, 300);
 
     if (inputValue === '') {
       foundKeywords.splice(0, foundKeywords.length);
@@ -47,24 +47,18 @@
     }
 
     checkInputKeyword();
+    console.log(foundKeywords);
   });
 
   const checkInputKeyword = () => {
       document.querySelectorAll('.keyword').forEach((v) => {
-      v.addEventListener('click', (e) => {
-        searchInput.value = e.target.innerHTML;
-      })
-    });
-  }
-
-  // document.querySelectorAll('.keyword').forEach((result) => {
-  //   result.addEventListener('click', () => {
-  //     searchInput.value = result.innerHTML;
-  //     foundKeywords.splice(0, foundKeywords.length);
-  //     searchKeywordList.innerHTML = '';
-  //     searchKeywordList.classList.remove('search-keyword-active');
-  //   });
-  // });
+        v.addEventListener('click', (e) => {
+          searchInput.value = e.target.innerHTML;
+          searchKeywordList.innerHTML = '';
+          searchKeywordList.classList.remove('search-keyword-active');
+        })
+      });
+    }
 
   closeSearchInput.addEventListener('click', () => {
     movingPlaceholder();
