@@ -77,6 +77,20 @@ body {
   cursor: pointer;
   display: none;
 }
+/* .search-keyword-container {
+  background-color: #FAFAFA;
+  margin-top: 5px;
+  padding: 10px 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 0.85;
+  font-size: 0.9em;
+} */
+.search-keyword li {
+  margin-bottom: 10px;
+}
+.search-keyword li:last-child {
+  margin-bottom: 0;
+}
 
 /* nav icons */
 .nav-icons-container {
@@ -432,8 +446,6 @@ body {
   color: #0095F6;
   cursor: pointer;
 }
-
-
 .footer {
   margin-top: 25px;
   font-size: 0.7em;

@@ -3,6 +3,8 @@
   const searchInput = document.querySelector('.search-input');
   const closeSearchInput = document.querySelector('.fa-times-circle');
   const searchPlaceholder = document.querySelector('.search-placeholder');
+  const searchkeywordList = document.querySelector('.search-keyword');
+  const searchIcon = document.querySelector('.fa-search');
 
   const feedImg = document.querySelector('.feed-img');
   const heartIcon = document.querySelector('.left-icons .fa-heart');
@@ -11,12 +13,45 @@
   const commentUploadBtn = document.querySelector('.upload-comment');
   const commentContainer = document.querySelector('.comment-container');
 
+  const searchKeywords = ['apple', 'apeach', 'ryan', 'prodo', 'neo', 'muji', 'kon', 'tube', 'aprilgreenery', 'dlwlrma', 'wecode'];
+  const foundKeywords = [];
+
   searchInput.addEventListener('focus', () => {
     movingPlaceholder();
   });
 
-  searchInput.addEventListener('keydown', () => {
+  let timeout = null;
+  searchInput.addEventListener('keyup', (e) => {
     searchPlaceholder.style.display = 'none';
+    searchIcon.style.display = 'none';
+    clearTimeout(timeout);
+    const inputValue = e.target.value;
+
+    timeout = setTimeout(() => {
+      if (inputValue !== '') {
+        searchKeywords
+        .filter((keyword) => keyword.toLowerCase().includes(inputValue.toLowerCase()))
+        .forEach((keyword) => {
+          if (foundKeywords.indexOf(keyword) === -1) {
+            foundKeywords.push(keyword);
+            searchkeywordList.appendChild(searchKeywordResult(keyword));
+          }
+        });
+      }
+    }, 500);
+
+    if (inputValue === '') {
+      foundKeywords.splice(0, foundKeywords.length);
+      searchkeywordList.innerHTML = '';
+    }
+  });
+
+  document.querySelectorAll('.keyword').forEach((result) => {
+    result.addEventListener('click', () => {
+      searchInput.value = result.innerHTML;
+      foundKeywords.splice(0, foundKeywords.length);
+      searchkeywordList.innerHTML = '';
+    });
   });
 
   closeSearchInput.addEventListener('click', () => {
@@ -25,8 +60,6 @@
   });
 
   const movingPlaceholder = () => {
-    const searchIcon = document.querySelector('.fa-search');
-
     if (closeSearchInput.style.display === 'none') {
       closeSearchInput.style.display = 'block';
       searchPlaceholder.style.left = 27 + 'px';
@@ -38,11 +71,18 @@
     }
   };
 
+  const searchKeywordResult = (keyword) => {
+    const result = document.createElement('li');
+    result.classList.add('keyword');
+    result.innerHTML = keyword;
+    return result;
+  };
+
   let count = 0;
   const likeAnimation = () => {
     const countLikes = document.querySelector('.count-likes');
     const heartAction = document.querySelector('.heart-action');
-  
+
     count++;
     countLikes.innerHTML = count;
 
@@ -90,7 +130,6 @@
         v.parentElement.parentElement.removeChild(comment);
       }
     });
-    // console.log(e.target.parentElement);  
   });
 
   const checkComment = () => {
