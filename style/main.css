@@ -77,14 +77,14 @@ body {
   cursor: pointer;
   display: none;
 }
-/* .search-keyword-container {
+.search-keyword-active {
   background-color: #FAFAFA;
   margin-top: 5px;
   padding: 10px 25px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   opacity: 0.85;
   font-size: 0.9em;
-} */
+}
 .search-keyword li {
   margin-bottom: 10px;
 }

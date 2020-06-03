@@ -43,6 +43,7 @@
     if (inputValue === '') {
       foundKeywords.splice(0, foundKeywords.length);
       searchkeywordList.innerHTML = '';
+      searchkeywordList.classList.remove('search-keyword-active');
     }
   });
 
@@ -51,6 +52,7 @@
       searchInput.value = result.innerHTML;
       foundKeywords.splice(0, foundKeywords.length);
       searchkeywordList.innerHTML = '';
+      searchkeywordList.classList.remove('search-keyword-active');
     });
   });
 
@@ -75,6 +77,7 @@
     const result = document.createElement('li');
     result.classList.add('keyword');
     result.innerHTML = keyword;
+    searchkeywordList.classList.add('search-keyword-active');
     return result;
   };
 
