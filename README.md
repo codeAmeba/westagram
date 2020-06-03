@@ -1,4 +1,4 @@
 # westagram
 
-Instagram clone with >wecode
-HTML, CSS, JavaScript
+- Instagram clone with >wecode
+- HTML, CSS, JavaScript
